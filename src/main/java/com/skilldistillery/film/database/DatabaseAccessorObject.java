@@ -10,17 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
 import com.skilldistillery.film.entities.*;
 
+@Component
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
-	
+
 	public static void main(String[] args) {
 		DatabaseAccessorObject dbo = new DatabaseAccessorObject();
 		dbo.runMenu();
 	}
-	
+
 //	private String description;
 //	private Integer releaseYear;
 //	private int languageId;
@@ -31,46 +34,46 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //	private double replacementCost;
 //	private String rating;
 
-	public Film runMenu() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter film info...");
-		System.out.println("Enter film title: ");
-		String filmTitle = sc.nextLine();
-		
-		System.out.println("Enter film description ");
-		String filmDescription = sc.nextLine();
-		
-		System.out.println("Enter film releaseYear ");
-		Integer relYear = sc.nextInt();
-		
-		System.out.println("Enter film language ID: ");
-		int languageId = sc.nextInt();
-		
-		System.out.println("Enter film rental duration: ");
-		int rentalDuration = sc.nextInt();
-		
-		System.out.println("Enter film rental rate: ");
-		double rentalRate = sc.nextDouble();
-		
-		System.out.println("Enter film length: ");
-		int length = sc.nextInt();
-		
-		System.out.println("Enter film replacement cost: ");
-		double replacementCost = sc.nextDouble();
-		
-		System.out.println("Enter film rating ");
-		String rating = sc.next();
-		
-		Film film = new Film(filmTitle, filmDescription, relYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating);
-		
-		Film newCreatedFilm = createFilm(film);
-		
-		System.out.println(newCreatedFilm);
-		
-		return newCreatedFilm;
-		
-	}
+//	public Film runMenu() {
+//
+//		System.out.println("Enter film info...");
+//		System.out.println("Enter film title: ");
+//		String filmTitle = sc.nextLine();
+//
+//		System.out.println("Enter film description ");
+//		String filmDescription = sc.nextLine();
+//
+//		System.out.println("Enter film releaseYear ");
+//		Integer relYear = sc.nextInt();
+//
+//		System.out.println("Enter film language ID: ");
+//		int languageId = sc.nextInt();
+//
+//		System.out.println("Enter film rental duration: ");
+//		int rentalDuration = sc.nextInt();
+//
+//		System.out.println("Enter film rental rate: ");
+//		double rentalRate = sc.nextDouble();
+//
+//		System.out.println("Enter film length: ");
+//		int length = sc.nextInt();
+//
+//		System.out.println("Enter film replacement cost: ");
+//		double replacementCost = sc.nextDouble();
+//
+//		System.out.println("Enter film rating ");
+//		String rating = sc.next();
+//
+//		Film film = new Film(filmTitle, filmDescription, relYear, languageId, rentalDuration, rentalRate, length,
+//				replacementCost, rating);
+//
+//		Film newCreatedFilm = createFilm(film);
+//
+//		System.out.println(newCreatedFilm);
+//
+//		return newCreatedFilm;
+//
+//	}
 
 	@Override
 	public Film findFilmById(int filmId) {
@@ -292,10 +295,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) " + 
-			" VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+					+ " VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 //			private String description;
 //			private Integer releaseYear;
 //			private int languageId;
@@ -305,7 +308,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //			private int length;
 //			private double replacementCost;
 //			private String rating;
-			
+
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
@@ -315,9 +318,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setInt(7, film.getLength());
 			stmt.setDouble(8, film.getReplacementCost());
 			stmt.setString(9, film.getRating());
-			
+
 			System.out.println(stmt);
-			
+
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
@@ -351,36 +354,42 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return film;
 	}
-	
+
 	public boolean deleteFilm(Film film) {
-			Connection conn = null;
-			String user = "root";
-			String pass = "root";
-		  try {
-		    conn = DriverManager.getConnection(url, user, pass);
-		    conn.setAutoCommit(false); // START TRANSACTION
-		    String sql = "DELETE FROM film_actor WHERE film_id = ?";
-		    PreparedStatement stmt = conn.prepareStatement(sql);
-		    stmt.setInt(1, film.getId());
-		    int updateCount = stmt.executeUpdate();
-		    
-		    sql = "DELETE FROM film WHERE id = ?";
-		    stmt = conn.prepareStatement(sql);
-		    stmt.setInt(1, film.getId());
-		    updateCount = stmt.executeUpdate();
-		    conn.commit();             // COMMIT TRANSACTION
-		  }
-		  catch (SQLException sqle) {
-		    sqle.printStackTrace();
-		    if (conn != null) {
-		      try { conn.rollback(); }
-		      catch (SQLException sqle2) {
-		        System.err.println("Error trying to rollback");
-		      }
-		    }
-		    return false;
-		  }
-		  return true;
+		Connection conn = null;
+		String user = "root";
+		String pass = "root";
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "DELETE FROM film_actor WHERE film_id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, film.getId());
+			int updateCount = stmt.executeUpdate();
+
+			sql = "DELETE FROM film WHERE id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, film.getId());
+			updateCount = stmt.executeUpdate();
+			conn.commit(); // COMMIT TRANSACTION
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return false;
 		}
+		return true;
+	}
+
+	@Override
+	public Film runMenu() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
