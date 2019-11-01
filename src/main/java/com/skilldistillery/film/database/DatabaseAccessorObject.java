@@ -14,7 +14,7 @@ import com.skilldistillery.film.entities.*;
 
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
-	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
 	
 	public static void main(String[] args) {
 		DatabaseAccessorObject dbo = new DatabaseAccessorObject();

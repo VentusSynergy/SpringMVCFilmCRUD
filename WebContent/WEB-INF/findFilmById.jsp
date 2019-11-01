@@ -9,10 +9,11 @@
 <title>Login</title>
 </head>
 <body>
-	<form:form action="createFilm.do" method="POST" modelAttribute="user">
-		<form:label path="email">Enter Film ID#:</form:label>
-		<form:input path="email" />
-		<form:errors path="email" />
+	<form:form action="findFilmById.do" method="GET" modelAttribute="user">
+		<form:label path="id">Enter Film ID#:</form:label>
+		<form:input path="id" />
+		<form:errors path="id" />
+		<input type="submit" value="Find"/>
 
 	</form:form>
 </body>
