@@ -8,6 +8,10 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+<<<<<<< HEAD
   <context:component-scan base-package="com.skilldistillery.film.entities"/>
   
+=======
+  <context:component-scan base-package="com.skilldistillery.film.database"/>
+>>>>>>> c0143048731acef6718b1503018f094473b16354
 </beans>
