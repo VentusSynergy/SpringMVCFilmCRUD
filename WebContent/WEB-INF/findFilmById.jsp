@@ -10,9 +10,9 @@
 </head>
 <body>
 	<form:form action="findFilmById.do" method="GET" modelAttribute="user">
-		<form:label path="id">Enter Film ID#:</form:label>
-		<form:input path="id" />
-		<form:errors path="id" />
+		<form:label path="Id">Enter Film ID#:</form:label>
+		<form:input path="Id" />
+		<form:errors path="Id" />
 		<input type="submit" value="Find"/>
 
 	</form:form>
