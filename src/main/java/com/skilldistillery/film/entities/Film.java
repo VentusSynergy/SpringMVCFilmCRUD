@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Film {
-	
+
 	private Integer id;
 	private String title;
 	private String description;
@@ -17,62 +17,80 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private List<Actor> actors = new ArrayList<>();
-	//private List<Actor> formattedActors = null;
-	
+	// private List<Actor> formattedActors = null;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public Integer getReleaseYear() {
 		return releaseYear;
 	}
+
 	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
+
 	public int getLanguageId() {
 		return languageId;
 	}
+
 	public void setLanguageId(int languageId) {
 		this.languageId = languageId;
 	}
+
 	public int getRentalDuration() {
 		return rentalDuration;
 	}
+
 	public void setRentalDuration(int rentalDuration) {
 		this.rentalDuration = rentalDuration;
 	}
+
 	public int getLength() {
 		return length;
 	}
+
 	public void setLength(int length) {
 		this.length = length;
 	}
+
 	public double getReplacementCost() {
 		return replacementCost;
 	}
+
 	public void setReplacementCost(double replacementCost) {
 		this.replacementCost = replacementCost;
 	}
+
 	public String getRating() {
 		return rating;
 	}
+
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -90,6 +108,7 @@ public class Film {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -134,6 +153,7 @@ public class Film {
 			return false;
 		return true;
 	}
+
 	public Film(Integer id, String title, String description, Integer releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String language) {
 		super();
@@ -148,7 +168,7 @@ public class Film {
 		this.rating = rating;
 		this.language = language;
 	}
-	
+
 	public Film(String title, String description, Integer releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating) {
 		super();
@@ -161,9 +181,9 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 	}
-	
-	public Film(String title, String description, Integer releaseYear, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating) {
+
+	public Film(String title, String description, Integer releaseYear, int rentalDuration, double rentalRate,
+			int length, double replacementCost, String rating) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -173,7 +193,7 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 	}
-	
+
 	public Film(Integer id, String title, String description, Integer releaseYear, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, List<Actor> actors, String language) {
 		super();
@@ -188,15 +208,18 @@ public class Film {
 		this.actors = actors;
 		this.language = language;
 	}
-	
+
 	public Film(Integer id, String title) {
 		super();
 		this.id = id;
 		this.title = title;
 	}
-	public Film() {
+
+	public Film(int i, String string, String string2, int j, String string3, int k, double d, int l, double e,
+			String string4, String string5, List<Actor> list) {
 		super();
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -227,25 +250,31 @@ public class Film {
 //		builder.append("]");
 		return builder.toString();
 	}
+
 	public double getRentalRate() {
 		return rentalRate;
 	}
+
 	public void setRentalRate(double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
+
 	public List<Actor> getActors() {
 		return actors;
 	}
+
 	public void setActors(List<Actor> actors) {
 		this.actors = actors;
 	}
+
 	public String getLanguage() {
 		return language;
 	}
+
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	
+
 //	public void formatActorList() {
 //		formattedActors = new ArrayList<>();
 //		
@@ -253,5 +282,5 @@ public class Film {
 //			formattedActors.ad
 //		}
 //	}
-	
+
 }

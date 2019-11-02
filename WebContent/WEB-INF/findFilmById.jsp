@@ -17,11 +17,12 @@
 	<c:choose>
 		<c:when test="${! empty film}"> <!-- need to add rest of attributes here -->
 			<ul>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
-				<li>${film.releaseYear}</li>
-				<li>${film.languageId}</li>
-				<li>${film.length}</li>
+				<li><strong>Film Title: </strong>${film.title}</li>
+				<li><strong>Film Description: </strong>${film.description}</li>
+				<li><strong>Release Year: </strong>${film.releaseYear}</li>
+				<li><strong>Language: </strong>${film.language}</li>
+				<li><strong>Length: </strong>${film.length}</li>
+				<li><strong>Actors: </strong>${film.actors}</li>
 			</ul>
 
 
