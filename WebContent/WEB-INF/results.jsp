@@ -28,9 +28,14 @@
 
 		</c:when>
 		<c:otherwise>
-			<p>No film found</p>
+			<p>Unable to add film</p>
 		</c:otherwise>
 	</c:choose>
+	
+	<form action="deleteFilm.do" method="POST">
+		<input type="submit" value="Delete Film" />
+	</form>
+	
 </body>
 </html>
 

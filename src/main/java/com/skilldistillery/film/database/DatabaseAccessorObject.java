@@ -372,6 +372,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 			throw new RuntimeException("Error inserting actor " + film);
 		}
+		
 		return film;
 	}
 
@@ -410,6 +411,17 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Film runMenu() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int returnLastId() {
+		// TODO Auto-generated method stub
+		
+		
+		
+		
+		
+		return 0;
 	}
 
 }
