@@ -489,5 +489,53 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return filmsPastThousand;
 
 	}
+	
+	public boolean editFilm(Film edit) {
+		String user = "root";
+		String pass = "root";
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			stmt = conn.prepareStatement(
+					"UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, special_features = ? "
+							+ " WHERE id = ?");
+
+			stmt.setString(1, edit.getTitle());
+			stmt.setString(2, edit.getDescription());
+			stmt.setInt(3, edit.getReleaseYear());
+			stmt.setInt(4, edit.getLanguageId());
+			stmt.setDouble(5, edit.getRentalDuration());
+			stmt.setDouble(6, edit.getRentalRate());
+			stmt.setInt(7, edit.getLength());
+			stmt.setDouble(8, edit.getReplacementCost());
+			stmt.setString(9, edit.getRating());
+			stmt.setInt(10, edit.getId());
+			
+			stmt.executeUpdate();
+
+			conn.commit();
+
+			conn.close();
+			stmt.close();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("\nError rolling back...\n");
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+
 
 }

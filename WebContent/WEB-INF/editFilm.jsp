@@ -24,13 +24,25 @@
 				<li><strong>Length: </strong>${film.length}</li>
 				<li><strong>Actors: </strong>${film.actors}</li>
 			</ul>
-
-
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
+	
+	<div>
+	<p><label>Film Title:<input type="text"></label></p>
+	<p><label>Description:<input type="text"></label></p>
+	<p><label>Release Year:<input type="text"></label></p>
+	<p><label>Language:<input type="text"></label></p>
+	<p><label>Length:<input type="text"></label></p>
+	<p><label>Actors:<input type="text"></label></p>
+	
+	<form action="edidFilm.do" method="POST">
+		<input type="submit" value="Edit Film" />
+	</form>
+
+	</div>
 </body>
 </html>
 
