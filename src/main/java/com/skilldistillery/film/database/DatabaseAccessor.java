@@ -13,4 +13,5 @@ public interface DatabaseAccessor {
   public Film createFilm(Film film);
   public Film runMenu();
   public boolean deleteFilm(Film film);
+  public List<String> returnGreaterThanThousand();
 }

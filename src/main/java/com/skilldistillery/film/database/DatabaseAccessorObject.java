@@ -372,6 +372,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 			throw new RuntimeException("Error inserting actor " + film);
 		}
+		
 		return film;
 	}
 
@@ -409,6 +410,52 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Film runMenu() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<String> returnGreaterThanThousand() {
+		// TODO Auto-generated method stub
+		
+		Film films = new Film();
+		
+		
+		Connection conn = null;
+		String user = "root";
+		String pass = "root";
+		List<String> filmsPastThousand = new ArrayList<>();
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+			
+			String sql = "SELECT title from film where id > 1000";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+//			stmt.setInt(film.getId());
+//			int updateCount = stmt.executeUpdate();
+
+			ResultSet rs = stmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				filmsPastThousand.add(rs.getString("title"));
+			}
+			System.out.println(filmsPastThousand + "FILMS PAST 10000");
+			films.setFilmTitlePastThousand(filmsPastThousand);
+			
+			conn.commit(); // COMMIT TRANSACTION
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return null;
+		}
+//		return filmsPastThousand;
+		return filmsPastThousand;
+
 	}
 
 }

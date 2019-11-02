@@ -1,6 +1,7 @@
 package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,13 +52,50 @@ public class FilmController {
 		
 	}
 	
-	@RequestMapping(path = "deleteFilm.do", params=("title"), method = RequestMethod.POST)
-	public ModelAndView deleteFilm() {
+	@RequestMapping(path = "deleteFilm.do", params="filmId", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(@RequestParam("filmId") int id) {
+		
+		System.out.println("***IN CONTROLLER/DELETE");
+		
+//		Film film = dao.findFilmByKeyword(title);
+		
+		
+		Film film = dao.findFilmById(id);
+		boolean filmDeleted = dao.deleteFilm(film);
+		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/deletFilm.jsp");
+		mv.setViewName("index.html");
 		return mv;
 	}
 	
+//	@RequestMapping(path = "deletePage", method = RequestMethod.POST)
+//	public ModelAndView deletePage() {
+//		
+//		System.out.println("***IN CONTROLLER/DELETEPAGE");
+//		
+////		dao.findFilmById(filmId);
+//		
+//		
+//		
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("WEB-INF/deletePage.jsp");
+//		return mv;
+//	}
+	
+	@RequestMapping(path = "deletePage.do", method = RequestMethod.POST)
+	public ModelAndView populate() {
+		
+		System.out.println("***IN CONTROLLER/DELETEPAGE");
+		
+//		dao.findFilmById(filmId);
+		
+		 List<String> list = dao.returnGreaterThanThousand();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", list);
+		mv.setViewName("WEB-INF/deletePage.jsp");
+		return mv;
+	}
 	
 }
 

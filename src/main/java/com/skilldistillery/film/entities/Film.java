@@ -17,6 +17,7 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private List<Actor> actors = new ArrayList<>();
+	private List<String> filmTitlePastThousand = new ArrayList<>();
 	// private List<Actor> formattedActors = null;
 
 	public Integer getId() {
@@ -278,6 +279,14 @@ public class Film {
 
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+
+	public List<String> getFilmTitlePastThousand() {
+		return filmTitlePastThousand;
+	}
+
+	public void setFilmTitlePastThousand(List<String> filmTitlePastThousand) {
+		this.filmTitlePastThousand = filmTitlePastThousand;
 	}
 
 //	public void formatActorList() {
