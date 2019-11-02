@@ -40,6 +40,15 @@ public class FilmController {
 		return mv;
 		
 	}
+	
+	@RequestMapping(path = "deleteFilm.do", params=("title"), method = RequestMethod.POST)
+	public ModelAndView deleteFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/deletFilm.jsp");
+		return mv;
+	}
+	
+	
 }
 
 	
