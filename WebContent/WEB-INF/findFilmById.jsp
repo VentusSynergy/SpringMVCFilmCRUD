@@ -31,7 +31,7 @@
 		</c:otherwise>
 	</c:choose>
 </body>
-
+</html>
 
 <%-- <body>
 	<form:form action="findFilmById.do" method="GET">
@@ -47,12 +47,11 @@
 		<form:input path="Id" />
 		<form:errors path="Id" />
 		<input type="submit" value="Find"/> --%>
-		<div>
+		<!-- <div>
 			<label for="filmId">Film Id</label>
 			<input type="text" name="id" placeholder="Film Id">
-		</div>
->>>>>>> 97c4e5579bac51790e85ebf06811f87dd6361904
-	</form:form>
+		</div> -->
+	<%-- </form:form>
 	
 	
 	<form action="findFilmById.do" method="GET">
@@ -63,5 +62,4 @@
 	</form>
 	
 	
-</body> --%>
-</html>
+</body> --%> 
