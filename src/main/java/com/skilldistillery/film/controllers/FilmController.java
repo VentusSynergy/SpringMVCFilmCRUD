@@ -33,10 +33,20 @@ public class FilmController {
 		return mv;
 	}
 //	@RequestMapping(path = "createFilm.do", params="title, description", params="relYear", params="languageId", params="rentalDuration", params="rentalRate", params="length", params="replacementCost", params="rating", method = RequestMethod.GET)
-	@RequestMapping(path = "createFilm.do", params=("title, description, relYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating"), method = RequestMethod.GET)
-	public ModelAndView createFilm() {
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+	public ModelAndView createFilm(Film film) {
+		System.out.println("***IN CONTROLLER");
+		
+//		Film film = new Film(title, description, relYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating);
+		
+		Film returnedFilm = dao.createFilm(film);
+		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/createFilm.jsp");
+		
+		
+		mv.addObject("film", returnedFilm);
+		
+		mv.setViewName("WEB-INF/results.jsp");
 		return mv;
 		
 	}

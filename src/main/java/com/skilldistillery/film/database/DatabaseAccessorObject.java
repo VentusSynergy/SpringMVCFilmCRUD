@@ -306,6 +306,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public Film createFilm(Film film) {
+		
+		System.out.println("***IN DAO");
+		
 		Connection conn = null;
 		String user = "root";
 		String pass = "root";
