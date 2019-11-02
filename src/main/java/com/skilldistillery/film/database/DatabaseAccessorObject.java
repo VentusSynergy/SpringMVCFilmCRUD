@@ -17,7 +17,16 @@ import com.skilldistillery.film.entities.*;
 @Component
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
-	private static String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
+	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";	
+	
+	 static {//had to add this static block to connect to DB
+	        try {
+	            Class.forName("com.mysql.jdbc.Driver");
+	        } catch (ClassNotFoundException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+	    }
 
 	public static void main(String[] args) {
 		DatabaseAccessorObject dbo = new DatabaseAccessorObject();
@@ -78,19 +87,25 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film findFilmById(int filmId) {
 
-		String user = "student";
-		String pass = "student";
+		String user = "root";
+		String pass = "root";
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
 		// open connection & query
+//		System.out.println("TEST F");
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
+//			System.out.println("Connection..");
 			// String sql = "SELECT * FROM film WHERE id = ?";
 			String sql = "SELECT * FROM film JOIN language ON language.id = film.language_id WHERE film.id = ?";
 			stmt = conn.prepareStatement(sql);
+//			System.out.println("Statement..");
 			stmt.setInt(1, filmId);
+//			System.out.println("Set int..");
 			rs = stmt.executeQuery();
+
+//			System.out.println("TESTER GETTT***");
 
 			while (rs.next()) {
 
@@ -100,7 +115,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 						rs.getString("rating"), rs.getString("name"));
 
 				film.setActors(findActorsByFilmId(filmId));
-				// System.out.println(rs.getString("id") + " " + rs.getString("title"));
+//				System.out.println("***********************************");
+//				System.out.println(rs.getString("id") + " " + rs.getString("title"));
+//				System.out.println("***********************************");
 				return film;
 			}
 
