@@ -219,6 +219,11 @@ public class Film {
 			String string4, String string5, List<Actor> list) {
 		super();
 	}
+	
+	public Film() {
+		
+	}
+	
 
 	@Override
 	public String toString() {
