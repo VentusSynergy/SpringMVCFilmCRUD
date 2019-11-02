@@ -97,6 +97,22 @@ public class FilmController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "editFilm.do", params="filmId", method = RequestMethod.POST)
+	public ModelAndView edit(@RequestParam("filmId") int id) {
+		
+		System.out.println("***IN CONTROLLER/EDIT FILM");
+		
+		
+		Film film = dao.findFilmById(id);
+		
+		 List<String> list = dao.returnGreaterThanThousand();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/editFilm.jsp");
+		return mv;
+	}
+	
 }
 
 	

@@ -7,39 +7,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Delete Film</title>
+<title>Edit Film</title>
 
 </head>
 
 
 <body>
 
-
-
 	<c:choose>
-
-		<c:when test="${! empty list}">
-			<!-- need to add rest of attributes here -->
+		<c:when test="${! empty film}"> <!-- need to add rest of attributes here -->
 			<ul>
-				<li><strong>Film Title: </strong>${list}</li>
+				<li><strong>Film Title: </strong>${film.title}</li>
+				<li><strong>Film Description: </strong>${film.description}</li>
+				<li><strong>Release Year: </strong>${film.releaseYear}</li>
+				<li><strong>Language: </strong>${film.language}</li>
+				<li><strong>Length: </strong>${film.length}</li>
+				<li><strong>Actors: </strong>${film.actors}</li>
 			</ul>
 
 
 		</c:when>
 		<c:otherwise>
-			<p>Empty List</p>
+			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
-	<form action="deleteFilm.do" method="POST">
-		<input type="text" name="filmId" /> 
-		<input type="submit" value="Delete Film" />
-	</form>
-	
-	<form action="editFilm.do" method="POST">
-		<input type="text" name="filmId" /> 
-		<input type="submit" value="Edit Film" />
-	</form>
-	
 </body>
 </html>
+
+
