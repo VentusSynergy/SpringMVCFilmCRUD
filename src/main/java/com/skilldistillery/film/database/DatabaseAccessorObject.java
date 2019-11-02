@@ -402,7 +402,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-
 	@Override
 	public Film runMenu() {
 		// TODO Auto-generated method stub
