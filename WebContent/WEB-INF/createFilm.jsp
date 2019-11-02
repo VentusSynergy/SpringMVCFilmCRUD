@@ -9,11 +9,11 @@
 <title>Login</title>
 </head>
 <body>
-	<form:form action="createFilm.do" method="POST" modelAttribute="user">
-		<form:label path="email">Enter Film ID#:</form:label>
-		<form:input path="email" />
-		<form:errors path="email" />
-
+	<form:form action="createFilm.do" method="POST">
+		<div>
+		<label for="createFilm.do">Create Film</label>
+		<input type="text" name="title" placeholder="Add Film Title">
+		</div>
 	</form:form>
 </body>
 </html>
