@@ -6,17 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>Film Results</title>
-
 </head>
-
-
 <body>
-
-	<c:choose>
-		<c:when test="${! empty film}">
-			<!-- need to add rest of attributes here -->
+	<div>
+		<form action="findFilmById.do" method="GET">
+			<input type="text" name="filmId" /> <input type="submit"
+				value="Find Film" />
+		</form>
+			<p>
+			<em><strong>Film Results by ID</strong></em>
+		</p>
+	</div>
+	<div>
+		<c:choose>
+			<c:when test="${! empty film}">
+				<!-- need to add rest of attributes here -->
 				<strong>Film Title: </strong>${film.title}<br>
 				<strong>Film Description: </strong>${film.description}<br>
 				<strong>Release Year: </strong>${film.releaseYear}<br>
@@ -27,11 +32,12 @@
 				<strong>Category: </strong>${film.category}<br>
 
 
-		</c:when>
-		<c:otherwise>
-			<p>No film found</p>
-		</c:otherwise>
-	</c:choose>
+			</c:when>
+			<c:otherwise>
+				<p>No film found, enter film ID</p>
+			</c:otherwise>
+		</c:choose>
+	</div>
 </body>
 </html>
 
