@@ -26,7 +26,7 @@
 					value="Search" /> --%>
 
 			<form action="keyword.do" method="GET">
-				<input type="text" name="keyword" placeholder="seach keyword" /> <input class="btn-primary"
+				<input type="text" name="keyword" placeholder="seach keyword" /> <input class="btn btn-primary"
 					type="submit" value="Search" />
 			</form>
 			<br>

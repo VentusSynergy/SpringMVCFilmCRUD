@@ -19,7 +19,7 @@
 	<div>
 		<form action="findFilmById.do" method="GET">
 			<input type="text" name="filmId" placeholder="enter film ID"/> <input type="submit"
-				class="btn-primary" value="Search" />
+				class="btn btn-primary" value="Search" />
 		</form>
 		<br>
 		<p>
