@@ -57,7 +57,10 @@
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
+	<br>
+	<form action="index.html" method="POST">
+		<input type="submit" value="Home Page" />
+	</form>
 
 </body>
 </html>

@@ -39,6 +39,11 @@
 		Enter Film ID: <input type="text" name="filmId" /> 
 		<input type="submit" value="Edit Film" />
 	</form>
+	
+	<br>
+	<form action="index.html" method="POST">
+		<input type="submit" value="Home Page" />
+	</form>
 
 </body>
 </html>
