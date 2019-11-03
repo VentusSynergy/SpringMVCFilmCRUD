@@ -488,6 +488,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	}
 
+
 	@Override
 	public Film editFilm(Film film) {
 
@@ -528,6 +529,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 			int updateCount = stmt.executeUpdate();
 			
+//			
+			if (updateCount != 1) {
+				film = null;
+				System.out.println("NULLLLLIEFIED FILM");
+			}
+			
 //			if (updateCount == 1) {
 //				ResultSet keys = stmt.getGeneratedKeys();
 //				if (keys.next()) {
@@ -546,11 +553,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //			} else {
 //				film = null;
 //			}
-			if (updateCount != 1) {
-				film = null;
-				System.out.println("NULLLLLIEFIED FILM");
-			}
-			
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -565,8 +567,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 
 		return film;
-
-		
+			
 	}
 
 }

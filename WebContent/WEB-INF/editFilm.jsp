@@ -17,6 +17,7 @@
 	
 
 	<c:choose>
+
 		<c:when test="${! empty film}"> <!-- need to add rest of attributes here -->
 			<form action="editFilm.do" method="POST">
 			ID: ${film.id}
@@ -43,13 +44,14 @@
 	
 			<input type="submit" value="Update Film" />
 			</form>
-
-
+		
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
+
+
 </body>
 </html>
 
