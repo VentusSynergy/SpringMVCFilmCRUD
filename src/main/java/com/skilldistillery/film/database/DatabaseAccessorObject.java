@@ -466,7 +466,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				filmsPastThousand.add("ID #: " + Integer.toString(rs.getInt("id")) +" Title: " + rs.getString("title")+ "  ");
+				filmsPastThousand
+						.add("ID #: " + Integer.toString(rs.getInt("id")) + " Title: " + rs.getString("title") + "  ");
 			}
 			System.out.println(filmsPastThousand + "FILMS PAST 10000");
 			films.setFilmTitlePastThousand(filmsPastThousand);
@@ -487,7 +488,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return filmsPastThousand;
 
 	}
-
 
 	@Override
 	public Film editFilm(Film film) {
@@ -512,7 +512,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //			private int length;
 //			private double replacementCost;
 //			private String rating;
-			
+
 //			stmt.setInt(1, film.getId());
 
 			stmt.setString(1, film.getTitle());
@@ -528,13 +528,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			System.out.println(stmt);
 
 			int updateCount = stmt.executeUpdate();
-			
+
 //			
 			if (updateCount != 1) {
 				film = null;
 				System.out.println("NULLLLLIEFIED FILM");
 			}
-			
+
 //			if (updateCount == 1) {
 //				ResultSet keys = stmt.getGeneratedKeys();
 //				if (keys.next()) {
@@ -567,7 +567,63 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 
 		return film;
+
+	}
+
+	@Override
+	public String findFilmCategory(Film film) {
+
+		String category = "";
+		String user = "root";
+		String pass = "root";
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		// open connection & query
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+//			String sql = "select * from film_actor JOIN actor ON film_actor.actor_id = actor.id where film_id = ?";
+			String sql = "select category from film_list JOIN film ON film.id = film_list.fid where film.id = ?";
+			stmt = conn.prepareStatement(sql);
 			
+			stmt.setInt(1, film.getId());
+			rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				
+				category = rs.getString(1);
+				film.setCategory(category);
+
+//				Actor actor = new Actor(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"));
+//				actorList.add(actor);
+				// System.out.println(rs.getString("id") + " " + rs.getString("title"));
+			}
+
+			return category;
+
+		} catch (SQLException e) {
+			System.out.println("**Database connection error**");
+			e.printStackTrace();
+		}
+		// close
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				} // Not needed, stmt.close() will close it; but good practice
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException sqle) {
+				System.err.println(sqle);
+			}
+		}
+
+		return null;
+
 	}
 
 }

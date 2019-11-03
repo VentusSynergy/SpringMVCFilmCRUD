@@ -24,6 +24,7 @@
 				<strong>Length: </strong>${film.length}<br>
 				<strong>Rating: </strong>${film.rating}<br>
 				<strong>Actors: </strong>${film.actors}<br>
+				<strong>Category: </strong>${film.category}<br>
 
 
 		</c:when>

@@ -24,6 +24,10 @@ public class FilmController {
 	public ModelAndView findFilmById(@RequestParam("filmId") int p) {
 
 		Film returnedFilm = dao.findFilmById(p);
+		
+		//sets film category for display
+		String category = dao.findFilmCategory(returnedFilm);
+		returnedFilm.setCategory(category);
 
 		System.out.println("*******" + returnedFilm);// tester
 
@@ -38,6 +42,12 @@ public class FilmController {
 	@RequestMapping(path = "keyword.do")
 	public ModelAndView filmSearchKeyword(String keyword) {
 		List<Film> filmList = dao.findFilmByKeyword(keyword);
+		
+		for (Film f : filmList) {
+			String category = dao.findFilmCategory(f);
+			f.setCategory(category);
+		}
+		
 		System.out.println("keyword in controller" + filmList);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/keyword.jsp");

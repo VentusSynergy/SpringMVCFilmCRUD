@@ -15,4 +15,5 @@ public interface DatabaseAccessor {
   public boolean deleteFilm(Film film);
   public List<String> returnGreaterThanThousand();
   public Film editFilm(Film film);
+  public String findFilmCategory(Film film);
 }

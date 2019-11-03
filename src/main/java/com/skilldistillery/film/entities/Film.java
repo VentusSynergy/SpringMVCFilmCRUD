@@ -18,6 +18,7 @@ public class Film {
 	private String rating;
 	private List<Actor> actors = new ArrayList<>();
 	private List<String> filmTitlePastThousand = new ArrayList<>();
+	private String category;
 	// private List<Actor> formattedActors = null;
 
 	public Integer getId() {
@@ -287,6 +288,14 @@ public class Film {
 
 	public void setFilmTitlePastThousand(List<String> filmTitlePastThousand) {
 		this.filmTitlePastThousand = filmTitlePastThousand;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 //	public void formatActorList() {

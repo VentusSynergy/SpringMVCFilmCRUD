@@ -25,6 +25,7 @@
 						<li><strong>Language: </strong>${film.language}</li>
 						<li><strong>Length: </strong>${film.length}</li>
 						<li><strong>Actors: </strong>${film.actors}</li>
+						<li><strong>Category: </strong>${film.category}</li>
 					</ul>
 				</c:forEach>
 
