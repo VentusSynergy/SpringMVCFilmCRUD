@@ -42,20 +42,22 @@
 	</div>
 	</nav>
 
+	<%-- 			<form action="keyword.do" method="GET">
+				<input type="text" name="keyword" /> <input type="submit"
+					value="Search" /> --%>
+
+	<form action="keyword.do" method="GET">
+		<input type="text" name="keyword" placeholder="seach keyword"
+			required="required" /> <input class="btn btn-primary" type="submit"
+			value="Search" />
+	</form>
+	<br>
 	<div>
 		<p>
 			<em><strong>Film Results by Keyword</strong></em>
 		</p>
 		<div>
-			<%-- 			<form action="keyword.do" method="GET">
-				<input type="text" name="keyword" /> <input type="submit"
-					value="Search" /> --%>
 
-			<form action="keyword.do" method="GET">
-				<input type="text" name="keyword" placeholder="seach keyword" required="required"  /> <input
-					class="btn btn-primary" type="submit" value="Search" />
-			</form>
-			<br>
 			<c:choose>
 				<c:when test="${! empty filmList}">
 					<!-- need to add rest of attributes here -->
@@ -70,6 +72,7 @@
 							<li><strong>Actors: </strong>${film.actors}</li>
 							<li><strong>Category: </strong>${film.category}</li>
 						</ul>
+						<hr>
 					</c:forEach>
 
 					<%-- <p><strong>Film List by Keyword:</strong>${filmList}</p> --%>
