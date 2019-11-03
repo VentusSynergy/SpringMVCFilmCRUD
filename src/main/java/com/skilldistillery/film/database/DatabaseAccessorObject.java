@@ -494,7 +494,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		Connection conn = null;
 		PreparedStatement stmt = null;
-
+		
 		String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,length = ?,  rating = ? WHERE film.id = ?";
 
 		try {
@@ -510,7 +510,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setString(6, edit.getRating());
 			stmt.setInt(7, edit.getId());
 
-			stmt.executeUpdate();
+			int result = stmt.executeUpdate();
 
 			conn.commit();
 

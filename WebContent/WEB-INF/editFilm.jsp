@@ -26,27 +26,28 @@
 				<li><strong>Actors: </strong>${film.actors}</li>
 			</ul>
 			<div>
-				<p>
-					<label>Film Title:<input type="text"></label>
-				</p>
-				<p>
-					<label>Description:<input type="text"></label>
-				</p>
-				<p>
-					<label>Release Year:<input type="text"></label>
-				</p>
-				<p>
-					<label>Language:<input type="text"></label>
-				</p>
-				<p>
-					<label>Length:<input type="text"></label>
-				</p>
-				<!-- <p><label>Actors:<input type="text"></label></p> -->
+				<form:form action="editThisFilm.do" method="POST">
+					<p>
+						<label>Film Title:<input type="text"></label>
+					</p>
+					<p>
+						<label>Description:<input type="text"></label>
+					</p>
+					<p>
+						<label>Release Year:<input type="text"></label>
+					</p>
+					<p>
+						<label>Language:<input type="text"></label>
+					</p>
+					<p>
+						<label>Length:<input type="text"></label>
+					</p>
+					<!-- <p><label>Actors:<input type="text"></label></p> -->
 
-				<form action="edidThisFilm.do" method="POST">
-					<input type="submit" value="Edit Film" />
-				</form>
-
+					<%-- <form action="editThisFilm.do" method="POST"> --%>
+						<input type="submit" value="Edit Film" />
+					<%-- </form> --%>
+				</form:form>
 			</div>
 		</c:when>
 		<c:otherwise>

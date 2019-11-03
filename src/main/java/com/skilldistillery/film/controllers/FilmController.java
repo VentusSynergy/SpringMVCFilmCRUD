@@ -112,14 +112,14 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "editThisFilm.do", method = RequestMethod.POST)
+	@RequestMapping(path = "editThisFilm.do", params = "edit", method = RequestMethod.POST)
 	public ModelAndView editThisFilm(Film edit) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> list = new ArrayList<>();
 		if (dao.editThisFilm(edit)) {
 			list.add(edit);
 			mv.addObject("film", edit);
-			mv.setViewName("WEB-INF/views/filmResult.jsp");
+			mv.setViewName("WEB-INF/views/editThisFilm.jsp");
 		} else {
 			list.add(edit);
 			mv.addObject("film", edit);
