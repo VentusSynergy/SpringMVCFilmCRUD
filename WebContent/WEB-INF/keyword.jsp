@@ -11,9 +11,10 @@
 <body>
 
 	<c:choose>
-		<c:when test="${! empty filmList}">
+		<c:when test="${! empty filmList}" >
 			<!-- need to add rest of attributes here -->
-<%-- 			<ul>
+			<ul>
+			<c:forEach items="${filmList}"  var="film">
 				<li><strong>Film Id: </strong>${film.id}</li>
 				<li><strong>Film Title: </strong>${film.title}</li>
 				<li><strong>Film Description: </strong>${film.description}</li>
@@ -21,14 +22,15 @@
 				<li><strong>Language: </strong>${film.language}</li>
 				<li><strong>Length: </strong>${film.length}</li>
 				<li><strong>Actors: </strong>${film.actors}</li>
-			</ul> --%>
-		<p><strong>Film List by Keyword:</strong>${filmList}</p>
-
+				</c:forEach>
+			</ul> 
+			
+		<%-- <p><strong>Film List by Keyword:</strong>${filmList}</p> --%>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
+	
 </body>
 </html>
