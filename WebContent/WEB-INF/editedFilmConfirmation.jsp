@@ -14,32 +14,19 @@
 
 <body>
 
-	
+
 
 	<c:choose>
-		<c:when test="${! empty editedFilm}"> <!-- need to add rest of attributes here -->
-			<form action="editFilm.do" method="POST">
-			Movie Title:
-			<input type="text" name="title" value="${film.title}" /><br>
-			Description:
-			<input type="text" name="description" value="${film.description}" /><br>
-			Release Year:
-			<input type="text" name="releaseYear" value="${film.releaseYear}" /><br>
-			Language ID (1 is English):
-			<input type="text" name="languageId" value="${film.languageId}" /><br>
-			Rental Duration:
-			<input type="text" name="rentalDuration" value="${film.rentalDuration}" /><br>
-			Rental Rate:
-			<input type="text" name="rentalRate" value="${film.rentalRate}" /><br>
-			Length:
-			<input type="text" name="length" value="${film.length}" /><br>
-			Replacement Cost:
-			<input type="text" name="replacementCost" value="${film.replacementCost}" /><br>
-			Rating(G or PG):
-			<input type="text" name="rating" value="${film.rating}" /><br>
-	
-			<!-- <input type="submit" value="Update Film" /> -->
-			</form>
+		<c:when test="${! empty editedFilm}">
+			<!-- need to add rest of attributes here -->
+			<strong>Film ID: </strong>${film.id }<br>
+				<strong>Film Title: </strong>${film.title}<br>
+				<strong>Film Description: </strong>${film.description}<br>
+				<strong>Release Year: </strong>${film.releaseYear}<br>
+				<strong>Language: </strong>${film.languageId}<br>
+				<strong>Length: </strong>${film.length}<br>
+				<strong>Rating: </strong>${film.rating}<br>
+				<strong>Actors: </strong>${film.actors}<br>
 
 
 		</c:when>
@@ -47,9 +34,10 @@
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-	
-	<a href="index.html">Go home</a><br/>
-	
+
+	<a href="index.html">Go home</a>
+	<br />
+
 </body>
 </html>
 

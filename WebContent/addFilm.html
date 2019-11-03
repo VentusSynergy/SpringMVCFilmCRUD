@@ -7,28 +7,28 @@
 <body>
 
 	<form action="createFilm.do" method="POST">
-		Movie Title:
-		<input type="text" name="title" /><br>
-		Description:
-		<input type="text" name="description" /><br>
-		Release Year:
-		<input type="text" name="releaseYear" /><br>
-		Language ID (1 is English):
-		<input type="text" name="languageId" /><br>
-		Rental Duration:
-		<input type="text" name="rentalDuration" /><br>
-		Rental Rate:
-		<input type="text" name="rentalRate" /><br>
-		Length:
-		<input type="text" name="length" /><br>
-		Replacement Cost:
-		<input type="text" name="replacementCost" /><br>
-		Rating(G or PG):
-		<input type="text" name="rating" /><br>
-		
-		
-		
-		<input type="submit" value="Add Film" />
-		</form>
+		Movie Title: <input type="text" name="title" /><br> Description:
+		<input type="text" name="description" /><br> Release Year: <input
+			type="text" name="releaseYear" /><br> Language <select
+			name="languageId">
+			<option value="1">English</option>
+			<option value="2">Italian</option>
+			<option value="3">Japanese</option>
+			<option value="4">Mandarin</option>
+			<option value="5">French</option>
+			<option value="6">German</option>
+			<br>
+		</select><br> Rental Duration: <input type="text" name="rentalDuration" /><br>
+		Rental Rate: <input type="text" name="rentalRate" /><br> Length:
+		<input type="text" name="length" /><br> Replacement Cost: <input
+			type="text" name="replacementCost" /><br> Rating: <select
+			name="rating">
+			<option value="G">G</option>
+			<option value="PG">PG</option>
+			<option value="PG13">PG13</option>
+			<option value="R">R</option>
+			<option value="NC17">NC17</option>
+		</select><br> <input type="submit" value="Add Film" />
+	</form>
 </body>
 </html>
