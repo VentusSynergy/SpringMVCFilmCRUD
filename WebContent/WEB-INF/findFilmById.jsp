@@ -37,6 +37,8 @@
 				<p>No film found, enter film ID</p>
 			</c:otherwise>
 		</c:choose>
+		<br>
+		<a href="index.html">HOME</a>
 	</div>
 </body>
 </html>

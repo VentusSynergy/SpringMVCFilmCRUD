@@ -43,6 +43,8 @@
 				</c:choose>
 			</form>
 		</div>
+		<br>
+		<a href="index.html">HOME</a>
 	</div>
 </body>
 </html>
