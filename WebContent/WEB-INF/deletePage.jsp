@@ -34,10 +34,17 @@
 		Enter Film ID: <input type="text" name="filmId" /> <input type="submit"
 			value="Delete Film" />
 	</form>
+<<<<<<< HEAD
 
 	<form action="editFilm.do" method="POST">
 		Enter Film ID: <input type="text" name="filmId" /> <input type="submit"
 			value="Edit Film" />
+=======
+	
+	<form action="editFilmPage.do" method="POST">
+		<input type="text" name="filmId" /> 
+		<input type="submit" value="Edit Film" />
+>>>>>>> 0aec3d53b14732f0fa7894467bc176a486c5eccc
 	</form>
 
 </body>

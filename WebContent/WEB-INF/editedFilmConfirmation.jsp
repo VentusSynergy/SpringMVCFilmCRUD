@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Edit Film</title>
+<title>Edited Film Confirmation</title>
 
 </head>
 
@@ -17,11 +17,8 @@
 	
 
 	<c:choose>
-
-		<c:when test="${! empty film}"> <!-- need to add rest of attributes here -->
+		<c:when test="${! empty editedFilm}"> <!-- need to add rest of attributes here -->
 			<form action="editFilm.do" method="POST">
-			ID: ${film.id}<br>
-			<%-- DO NOT CHANGE THIS<input type="text" name="id" value="${film.id}" /><br> --%>
 			Movie Title:
 			<input type="text" name="title" value="${film.title}" /><br>
 			Description:
@@ -40,18 +37,19 @@
 			<input type="text" name="replacementCost" value="${film.replacementCost}" /><br>
 			Rating(G or PG):
 			<input type="text" name="rating" value="${film.rating}" /><br>
-			
 	
-			<input type="submit" value="Update Film" />
+			<!-- <input type="submit" value="Update Film" /> -->
 			</form>
-		
+
+
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
-
+	
+	<a href="index.html">Go home</a><br/>
+	
 </body>
 </html>
 

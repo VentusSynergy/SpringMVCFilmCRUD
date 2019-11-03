@@ -488,48 +488,86 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	}
 
-	public boolean editThisFilm(Film edit) {
-		String user = "root";
-		String pass = "root";
+
+	@Override
+	public Film editFilm(Film film) {
 
 		Connection conn = null;
-		PreparedStatement stmt = null;
-		
-		String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,length = ?,  rating = ? WHERE film.id = ?";
-
+		String user = "root";
+		String pass = "root";
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			conn.setAutoCommit(false);
-			stmt = conn.prepareStatement(sql);
+			conn.setAutoCommit(false); // START TRANSACTION
+//			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+//					+ " VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ? WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//9
+//			private String description;
+//			private Integer releaseYear;
+//			private int languageId;
+//			private String language;
+//			private int rentalDuration;
+//			private double rentalRate;
+//			private int length;
+//			private double replacementCost;
+//			private String rating;
+			
+//			stmt.setInt(1, film.getId());
 
-			stmt.setString(1, edit.getTitle());
-			stmt.setString(2, edit.getDescription());
-			stmt.setInt(3, edit.getReleaseYear());
-			stmt.setInt(4, edit.getLanguageId());
-			stmt.setInt(5, edit.getLength());
-			stmt.setString(6, edit.getRating());
-			stmt.setInt(7, edit.getId());
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDescription());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setInt(9, film.getId());
 
-			int result = stmt.executeUpdate();
+			System.out.println(stmt);
 
-			conn.commit();
-
-			conn.close();
-			stmt.close();
-
+			int updateCount = stmt.executeUpdate();
+			
+//			
+			if (updateCount != 1) {
+				film = null;
+				System.out.println("NULLLLLIEFIED FILM");
+			}
+			
+//			if (updateCount == 1) {
+//				ResultSet keys = stmt.getGeneratedKeys();
+//				if (keys.next()) {
+//					int newFilmId = keys.getInt(1);
+//					film.setId(newFilmId);
+//					if (film.getActors() != null && film.getActors().size() > 0) {
+//						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+//						stmt = conn.prepareStatement(sql);
+//						for (Actor actor : film.getActors()) {
+//							stmt.setInt(1, newFilmId);
+//							stmt.setInt(2, actor.getId());
+//							updateCount = stmt.executeUpdate();
+//						}
+//					}
+//				}
+//			} else {
+//				film = null;
+//			}
+			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
-
 			if (conn != null) {
 				try {
 					conn.rollback();
 				} catch (SQLException sqle2) {
-					System.err.println("\nError rolling back...\n");
+					System.err.println("Error trying to rollback");
 				}
 			}
-			return false;
+			throw new RuntimeException("Error inserting actor " + film);
 		}
-		return true;
+
+		return film;
+			
 	}
 
 }
