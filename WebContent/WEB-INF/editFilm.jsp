@@ -21,7 +21,7 @@
 		<c:when test="${! empty film}"> <!-- need to add rest of attributes here -->
 			<form action="editFilm.do" method="POST">
 			ID: ${film.id}<br>
-			<%-- DO NOT CHANGE THIS<input type="text" name="id" value="${film.id}" /><br> --%>
+			DO NOT CHANGE THIS<input type="text" name="id" value="${film.id}" /><br>
 			Movie Title:
 			<input type="text" name="title" value="${film.title}" /><br>
 			Description:
