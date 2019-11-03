@@ -26,10 +26,10 @@
 					value="Search" /> --%>
 
 			<form action="keyword.do" method="GET">
-				<input type="text" name="keyword" /> <input class="btn-secondary"
+				<input type="text" name="keyword" placeholder="seach keyword" /> <input class="btn-primary"
 					type="submit" value="Search" />
 			</form>
-
+			<br>
 			<c:choose>
 				<c:when test="${! empty filmList}">
 					<!-- need to add rest of attributes here -->
