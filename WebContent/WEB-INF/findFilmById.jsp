@@ -6,18 +6,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Film Results</title>
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/4.3.1/css/bootstrap.css"
+	rel="stylesheet">
 </head>
+<br>
 <body>
 	<div>
 		<form action="findFilmById.do" method="GET">
-			<input type="text" name="filmId" /> <input type="submit"
-				value="Find Film" />
+			<input type="text" name="filmId" placeholder="enter film ID"/> <input type="submit"
+				class="btn-primary" value="Search" />
 		</form>
-			<p>
+		<br>
+		<p>
 			<em><strong>Film Results by ID</strong></em>
 		</p>
 	</div>
+	<br>
 	<div>
 		<c:choose>
 			<c:when test="${! empty film}">
@@ -37,9 +46,19 @@
 				<p>No film found, enter film ID</p>
 			</c:otherwise>
 		</c:choose>
-		<br>
-		<a href="index.html">HOME</a>
+		<br> <a href="index.html">HOME</a>
 	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script
+		src="https://cdn.jsdelivr.net/webjars/org.webjars/popper.js/1.15.0/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/4.3.1/js/bootstrap.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap-4.3.1.js"></script>
 </body>
 </html>
 
