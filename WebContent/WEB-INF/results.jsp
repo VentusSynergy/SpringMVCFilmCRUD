@@ -34,8 +34,8 @@
 		</c:otherwise>
 	</c:choose>
 
-	<form action="deleteFilm.do" method="POST">
-		<input type="submit" value="Delete Film" />
+	<form action="index.html" method="POST">
+		<input type="submit" value="Home Page" />
 	</form>
 
 </body>

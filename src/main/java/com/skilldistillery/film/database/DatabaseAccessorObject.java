@@ -466,7 +466,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				filmsPastThousand.add("ID #: " + Integer.toString(rs.getInt("id")) +" Title: " + rs.getString("title") + " | ");
+				filmsPastThousand.add("ID #: " + Integer.toString(rs.getInt("id")) +" Title: " + rs.getString("title")+ "  ");
 			}
 			System.out.println(filmsPastThousand + "FILMS PAST 10000");
 			films.setFilmTitlePastThousand(filmsPastThousand);

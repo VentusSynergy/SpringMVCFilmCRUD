@@ -83,6 +83,7 @@ public class FilmController {
 
 	@RequestMapping(path = "deletePage.do", method = RequestMethod.POST)
 	public ModelAndView populate() {
+		ModelAndView mv = new ModelAndView();
 
 		System.out.println("***IN CONTROLLER/DELETEPAGE");
 
@@ -90,7 +91,6 @@ public class FilmController {
 
 		List<String> list = dao.returnGreaterThanThousand();
 
-		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
 		mv.setViewName("WEB-INF/deletePage.jsp");
 		return mv;
