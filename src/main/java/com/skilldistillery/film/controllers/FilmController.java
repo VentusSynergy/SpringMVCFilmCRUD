@@ -42,7 +42,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/keyword.jsp");
 		
-		mv.addObject("filmList", dao.findFilmByKeyword(keyword));
+		mv.addObject("filmList", filmList);
 		return mv;
 	}
 
