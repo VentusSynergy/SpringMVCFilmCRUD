@@ -35,6 +35,17 @@ public class FilmController {
 		return mv;
 	}
 
+	@RequestMapping(path = "keyword.do")
+	public ModelAndView filmSearchKeyword(String keyword) {
+		List<Film> filmList = dao.findFilmByKeyword(keyword);
+		System.out.println("keyword in controller" + filmList);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/keyword.jsp");
+		
+		mv.addObject("filmList", filmList);
+		return mv;
+	}
+
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film) {
 		System.out.println("***IN CONTROLLER");
@@ -160,4 +171,5 @@ public class FilmController {
 //	}
 
 	}
+
 }
