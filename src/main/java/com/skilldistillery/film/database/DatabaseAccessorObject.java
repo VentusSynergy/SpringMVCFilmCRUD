@@ -17,16 +17,16 @@ import com.skilldistillery.film.entities.*;
 @Component
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
-	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";	
-	
-	 static {//had to add this static block to connect to DB
-	        try {
-	            Class.forName("com.mysql.jdbc.Driver");
-	        } catch (ClassNotFoundException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	        }
-	    }
+	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
+
+	static {// had to add this static block to connect to DB
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		DatabaseAccessorObject dbo = new DatabaseAccessorObject();
@@ -306,9 +306,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public Film createFilm(Film film) {
-		
+
 		System.out.println("***IN DAO");
-		
+
 		Connection conn = null;
 		String user = "root";
 		String pass = "root";
@@ -372,7 +372,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 			throw new RuntimeException("Error inserting actor " + film);
 		}
-		
+
 		return film;
 	}
 
@@ -406,7 +406,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-	
+
 //	public Film editFilm(Film film) {
 //		Connection conn = null;
 //		String user = "root";
@@ -447,10 +447,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public List<String> returnGreaterThanThousand() {
 		// TODO Auto-generated method stub
-		
+
 		Film films = new Film();
-		
-		
+
 		Connection conn = null;
 		String user = "root";
 		String pass = "root";
@@ -458,21 +457,20 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			
+
 			String sql = "SELECT title from film where id > 1000";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 //			stmt.setInt(film.getId());
 //			int updateCount = stmt.executeUpdate();
 
 			ResultSet rs = stmt.executeQuery();
-			
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				filmsPastThousand.add(rs.getString("title"));
 			}
 			System.out.println(filmsPastThousand + "FILMS PAST 10000");
 			films.setFilmTitlePastThousand(filmsPastThousand);
-			
+
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -488,6 +486,87 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //		return filmsPastThousand;
 		return filmsPastThousand;
 
+	}
+
+	@Override
+	public Film editFilm(Film film) {
+
+		Connection conn = null;
+		String user = "root";
+		String pass = "root";
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+//			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+//					+ " VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ? WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//9
+//			private String description;
+//			private Integer releaseYear;
+//			private int languageId;
+//			private String language;
+//			private int rentalDuration;
+//			private double rentalRate;
+//			private int length;
+//			private double replacementCost;
+//			private String rating;
+			
+//			stmt.setInt(1, film.getId());
+
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDescription());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setInt(9, film.getId());
+
+			System.out.println(stmt);
+
+			int updateCount = stmt.executeUpdate();
+			
+//			if (updateCount == 1) {
+//				ResultSet keys = stmt.getGeneratedKeys();
+//				if (keys.next()) {
+//					int newFilmId = keys.getInt(1);
+//					film.setId(newFilmId);
+//					if (film.getActors() != null && film.getActors().size() > 0) {
+//						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+//						stmt = conn.prepareStatement(sql);
+//						for (Actor actor : film.getActors()) {
+//							stmt.setInt(1, newFilmId);
+//							stmt.setInt(2, actor.getId());
+//							updateCount = stmt.executeUpdate();
+//						}
+//					}
+//				}
+//			} else {
+//				film = null;
+//			}
+			if (updateCount != 1) {
+				film = null;
+				System.out.println("NULLLLLIEFIED FILM");
+			}
+			
+			conn.commit(); // COMMIT TRANSACTION
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			throw new RuntimeException("Error inserting actor " + film);
+		}
+
+		return film;
+
+		
 	}
 
 }

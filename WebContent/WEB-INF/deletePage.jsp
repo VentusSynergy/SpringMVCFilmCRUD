@@ -36,7 +36,7 @@
 		<input type="submit" value="Delete Film" />
 	</form>
 	
-	<form action="editFilm.do" method="POST">
+	<form action="editFilmPage.do" method="POST">
 		<input type="text" name="filmId" /> 
 		<input type="submit" value="Edit Film" />
 	</form>
