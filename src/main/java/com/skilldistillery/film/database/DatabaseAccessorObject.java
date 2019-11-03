@@ -17,16 +17,16 @@ import com.skilldistillery.film.entities.*;
 @Component
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
-	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";	
-	
-	 static {//had to add this static block to connect to DB
-	        try {
-	            Class.forName("com.mysql.jdbc.Driver");
-	        } catch (ClassNotFoundException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	        }
-	    }
+	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
+
+	static {// had to add this static block to connect to DB
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		DatabaseAccessorObject dbo = new DatabaseAccessorObject();
@@ -306,9 +306,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public Film createFilm(Film film) {
-		
+
 		System.out.println("***IN DAO");
-		
+
 		Connection conn = null;
 		String user = "root";
 		String pass = "root";
@@ -372,7 +372,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 			throw new RuntimeException("Error inserting actor " + film);
 		}
-		
+
 		return film;
 	}
 
@@ -406,7 +406,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-	
+
 //	public Film editFilm(Film film) {
 //		Connection conn = null;
 //		String user = "root";
@@ -447,10 +447,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public List<String> returnGreaterThanThousand() {
 		// TODO Auto-generated method stub
-		
+
 		Film films = new Film();
-		
-		
+
 		Connection conn = null;
 		String user = "root";
 		String pass = "root";
@@ -458,21 +457,20 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			
+
 			String sql = "SELECT title from film where id > 1000";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 //			stmt.setInt(film.getId());
 //			int updateCount = stmt.executeUpdate();
 
 			ResultSet rs = stmt.executeQuery();
-			
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				filmsPastThousand.add(rs.getString("title"));
 			}
 			System.out.println(filmsPastThousand + "FILMS PAST 10000");
 			films.setFilmTitlePastThousand(filmsPastThousand);
-			
+
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -488,6 +486,50 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //		return filmsPastThousand;
 		return filmsPastThousand;
 
+	}
+
+	public boolean editThisFilm(Film edit) {
+		String user = "root";
+		String pass = "root";
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,length = ?,  rating = ? WHERE film.id = ?";
+
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, edit.getTitle());
+			stmt.setString(2, edit.getDescription());
+			stmt.setInt(3, edit.getReleaseYear());
+			stmt.setInt(4, edit.getLanguageId());
+			stmt.setInt(5, edit.getLength());
+			stmt.setString(6, edit.getRating());
+			stmt.setInt(7, edit.getId());
+
+			int result = stmt.executeUpdate();
+
+			conn.commit();
+
+			conn.close();
+			stmt.close();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("\nError rolling back...\n");
+				}
+			}
+			return false;
+		}
+		return true;
 	}
 
 }
