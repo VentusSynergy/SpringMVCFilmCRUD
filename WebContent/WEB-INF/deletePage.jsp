@@ -34,7 +34,7 @@
 		</c:otherwise>
 	</c:choose>
 	<form action="deleteFilm.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" /> <input
+		Enter Film ID: <input  type="text" name="filmId" /> <input
 			type="submit" value="Delete Film" />
 	</form>
 
