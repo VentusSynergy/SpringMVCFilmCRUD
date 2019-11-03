@@ -63,7 +63,7 @@ public class FilmController {
 		boolean filmDeleted = dao.deleteFilm(film);
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/deletePage.jsp");
+		mv.setViewName("index.html");
 		return mv;
 	}
 
