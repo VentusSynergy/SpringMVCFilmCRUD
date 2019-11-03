@@ -495,12 +495,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 
+		String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,length = ?,  rating = ? WHERE film.id = ?";
+
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			conn.setAutoCommit(false); // START TRANSACTION
-			stmt = conn.prepareStatement(
-					//
-					"UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?,length = ?,  rating = ? WHERE film.id = ?");
+			conn.setAutoCommit(false);
+			stmt = conn.prepareStatement(sql);
 
 			stmt.setString(1, edit.getTitle());
 			stmt.setString(2, edit.getDescription());
