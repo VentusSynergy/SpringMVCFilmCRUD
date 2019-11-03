@@ -458,7 +458,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
 
-			String sql = "SELECT title from film where id > 1000";
+			String sql = "SELECT id, title from film where id > 1000";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 //			stmt.setInt(film.getId());
 //			int updateCount = stmt.executeUpdate();
@@ -466,7 +466,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				filmsPastThousand.add(rs.getString("title"));
+				filmsPastThousand.add("ID #: " + Integer.toString(rs.getInt("id")) +" Title: " + rs.getString("title") + " | ");
 			}
 			System.out.println(filmsPastThousand + "FILMS PAST 10000");
 			films.setFilmTitlePastThousand(filmsPastThousand);

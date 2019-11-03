@@ -30,16 +30,15 @@
 			<p>Empty List</p>
 		</c:otherwise>
 	</c:choose>
-
 	<form action="deleteFilm.do" method="POST">
-		<input type="text" name="filmId" /> 
-		<input type="submit" value="Delete Film" />
+		Enter Film ID: <input type="text" name="filmId" /> <input type="submit"
+			value="Delete Film" />
 	</form>
-	
+
 	<form action="editFilm.do" method="POST">
-		<input type="text" name="filmId" /> 
-		<input type="submit" value="Edit Film" />
+		Enter Film ID: <input type="text" name="filmId" /> <input type="submit"
+			value="Edit Film" />
 	</form>
-	
+
 </body>
 </html>
