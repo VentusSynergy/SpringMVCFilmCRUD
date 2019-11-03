@@ -34,13 +34,13 @@
 		</c:otherwise>
 	</c:choose>
 	<form action="deleteFilm.do" method="POST">
-		Enter Film ID: <input  type="text" name="filmId" /> <input
+		Enter Film ID: <input  type="text" name="filmId" required="required"  /> <input
 			type="submit" value="Delete Film" />
 	</form>
 
 
 	<form action="editFilmPage.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" /> <input
+		Enter Film ID: <input type="text" name="filmId" required="required"  /> <input
 			type="submit" value="Edit Film" />
 	</form>
 

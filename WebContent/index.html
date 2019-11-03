@@ -11,28 +11,28 @@
 	rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-white bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		&nbsp;
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+			<span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active"><a class="nav-link" href="index.html">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					class="nav-link dropdown-toggle"  id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Dropdown </a>
+					aria-expanded="false"> Menu </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Find Film By ID</a> <a
-							class="dropdown-item" href="#">Create New Film</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Edit / Delete Film</a>
+						<a class="dropdown-item" href="userStories.html">User Stories</a>
+
+
 					</div></li>
 
 			</ul>
@@ -56,13 +56,13 @@
 							<!-- <div class="btn-group" role="group" align="center"> -->
 
 							<form action="findFilmById.do" method="GET">
-								<input type="text" name="filmId" placeholder="enter film ID" />
+								<input type="text" name="filmId" placeholder="enter film ID" required="required"  />
 								<input class="btn btn-secondary" type="submit"
 									value="Find Film by ID" />
 							</form>
 							<br>
 							<form action="keyword.do" method="GET">
-								<input type="text" name="keyword" placeholder="seach by keyword" /><input
+								<input type="text" name="keyword" placeholder="seach by keyword" required="required"  /><input
 									class="btn btn-secondary" type="submit" value="Film by Keyword" />
 							</form>
 

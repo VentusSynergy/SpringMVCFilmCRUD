@@ -17,6 +17,7 @@
 
 <body>
 
+
 	<c:choose>
 		<c:when test="${! empty film}">
 			<!-- need to add rest of attributes here -->
