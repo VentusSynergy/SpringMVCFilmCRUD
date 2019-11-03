@@ -37,8 +37,10 @@ public class FilmController {
 
 	@RequestMapping(path = "keyword.do")
 	public ModelAndView filmSearchKeyword(String keyword) {
+		System.out.println("keyword in controller");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/keyword.jsp");
+		
 		mv.addObject("filmList", dao.findFilmByKeyword(keyword));
 		return mv;
 	}
