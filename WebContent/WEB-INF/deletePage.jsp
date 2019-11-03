@@ -20,7 +20,8 @@
 
 		<c:when test="${! empty list}">
 			<!-- need to add rest of attributes here -->
-				<p><strong>Film Title: </strong>${list}
+				
+				<p><strong>Film Title: </strong>${list}</p>
 
 
 		</c:when>
