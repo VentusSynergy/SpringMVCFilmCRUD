@@ -48,9 +48,10 @@
 				Movie Title: <input type="text" name="title"
 					placeholder="enter title" required="required" /><br>
 				Description: <input type="text" name="description"
-					placeholder="film description" /><br> Release Year: <input
-					type="text" name="releaseYear" placeholder="release year ie. 2019" /><br>
-				Language <select name="languageId">
+					placeholder="film description" required="required" /><br>
+				Release Year: <input type="number" name="releaseYear" min=" 1900 "
+					max=" 2020 " placeholder="release year ie. 2019"
+					required="required" /><br> Language <select name="languageId">
 					<option value="1">English</option>
 					<option value="2">Italian</option>
 					<option value="3">Japanese</option>
@@ -58,12 +59,15 @@
 					<option value="5">French</option>
 					<option value="6">German</option>
 					<br>
-				</select><br> Rental Duration: <input type="text" name="rentalDuration"
-					placeholder="rental duration" /><br> Rental Rate: <input
-					type="text" name="rentalRate" placeholder="rental rate" /><br>
-				Length: <input type="text" name="length"
-					placeholder="length in minutes" /><br> Replacement Cost: <input
-					type="text" name="replacementCost" placeholder="replacement cost" /><br>
+				</select><br> Rental Duration: <input type="number"
+					name="rentalDuration" min=" 0 " max=" 7 " placeholder="rental duration in days"
+					required="required" /><br> Rental Rate: <input type="number"
+					name="rentalRate" min=" 0.00 " step=".01" max=" 2500.00 "
+					placeholder="rental rate" required="required" /><br> Length:
+				<input type="number" name="length" placeholder="length in minutes"
+					required="required" /><br> Replacement Cost: <input
+					type="number" name="replacementCost" min=" 0.00 " step=".01"
+					max=" 2500.00 " placeholder="replacement cost" required="required" /><br>
 				Rating: <select name="rating">
 					<option value="G">G</option>
 					<option value="PG">PG</option>

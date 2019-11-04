@@ -45,30 +45,29 @@
 		</ul>
 	</div>
 	</nav>
+	<br>
+	<div class="container">
+	<h4><strong>Congratulations, <em>${film.title}</em> was successfully added!</strong></h4>
+		<c:choose>
+			<c:when test="${! empty film}">
+				<!-- need to add rest of attributes here -->
+				<ul>
+					<li><strong>Film ID: </strong>${film.id }</li>
+					<li><strong>Film Title: </strong>${film.title}</li>
+					<li><strong>Film Description: </strong>${film.description}</li>
+					<li><strong>Release Year: </strong>${film.releaseYear}</li>
+					<li><strong>Language: </strong>${film.languageId}</li>
+					<li><strong>Length: </strong>${film.length}</li>
+					<li><strong>Actors: </strong>${film.actors}</li>
+				</ul>
 
-	<c:choose>
-		<c:when test="${! empty film}">
-			<!-- need to add rest of attributes here -->
-			<ul>
-				<li><strong>Film ID: </strong>${film.id }</li>
-				<li><strong>Film Title: </strong>${film.title}</li>
-				<li><strong>Film Description: </strong>${film.description}</li>
-				<li><strong>Release Year: </strong>${film.releaseYear}</li>
-				<li><strong>Language: </strong>${film.languageId}</li>
-				<li><strong>Length: </strong>${film.length}</li>
-				<li><strong>Actors: </strong>${film.actors}</li>
-			</ul>
 
-
-		</c:when>
-		<c:otherwise>
-			<p>Unable to add film</p>
-		</c:otherwise>
-	</c:choose>
-
-	<form action="index.html" method="POST">
-		<input type="submit" value="Home Page" />
-	</form>
+			</c:when>
+			<c:otherwise>
+				<p>Unable to add film</p>
+			</c:otherwise>
+		</c:choose>
+	</div>
 	<br>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
