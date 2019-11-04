@@ -77,9 +77,20 @@
 					<p>No film found, enter film ID</p>
 				</c:otherwise>
 			</c:choose>
-			<br> <!-- <a href="index.html">HOME</a> -->
+			<br>
+			<!-- <a href="index.html">HOME</a> -->
 		</div>
 	</div>
+	<hr>
+	<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p>Copyright © MyWebsite. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

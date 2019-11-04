@@ -47,7 +47,11 @@
 	</nav>
 	<br>
 	<div class="container">
-	<h4><strong>Congratulations, <em>${film.title}</em> was successfully added!</strong></h4>
+		<h4>
+			<strong>Congratulations, <em><u>${film.title}</u></em> was
+				successfully added!
+			</strong>
+		</h4>
 		<c:choose>
 			<c:when test="${! empty film}">
 				<!-- need to add rest of attributes here -->
@@ -68,8 +72,16 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<br>
-
+	<hr>
+	<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p>Copyright © MyWebsite. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

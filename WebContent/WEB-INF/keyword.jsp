@@ -53,9 +53,9 @@
 		</form>
 		<br>
 		<div>
-			<p>
+			<h5>
 				<em><strong>Film Results by Keyword</strong></em>
-			</p>
+			</h5>
 			<div>
 
 				<c:choose>
@@ -74,7 +74,6 @@
 							</ul>
 							<hr>
 						</c:forEach>
-
 						<%-- <p><strong>Film List by Keyword:</strong>${filmList}</p> --%>
 					</c:when>
 					<c:otherwise>
@@ -82,9 +81,20 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<br> <a href="index.html">HOME</a>
+			<a href="index.html">HOME</a>
+		</div>
+		<br>
+	</div>
+	<hr>
+	<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p>Copyright © MyWebsite. All rights reserved.</p>
+			</div>
 		</div>
 	</div>
+	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

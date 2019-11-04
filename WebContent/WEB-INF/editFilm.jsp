@@ -43,7 +43,9 @@
 		</ul>
 	</div>
 	</nav>
+	<br>
 	<div class="container">
+	<h5><strong>Edit Film Below</strong></h5>
 		<c:choose>
 			<c:when test="${! empty film}">
 				<!-- need to add rest of attributes here -->
@@ -82,8 +84,17 @@
 				<p>No film found</p>
 			</c:otherwise>
 		</c:choose>
-		<br>
+		<hr>
 	</div>
+	<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p>Copyright © MyWebsite. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

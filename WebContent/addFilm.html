@@ -43,7 +43,7 @@
 	<br>
 	<div>
 		<div class="container">
-
+			<h5>Create New Film</h5>
 			<form action="createFilm.do" method="POST">
 				Movie Title: <input type="text" name="title"
 					placeholder="enter title" required="required" /><br>
@@ -60,27 +60,35 @@
 					<option value="6">German</option>
 					<br>
 				</select><br> Rental Duration: <input type="number"
-					name="rentalDuration" min=" 0 " max=" 7 " placeholder="rental duration in days"
-					required="required" /><br> Rental Rate: <input type="number"
-					name="rentalRate" min=" 0.00 " step=".01" max=" 2500.00 "
-					placeholder="rental rate" required="required" /><br> Length:
-				<input type="number" name="length" placeholder="length in minutes"
-					required="required" /><br> Replacement Cost: <input
-					type="number" name="replacementCost" min=" 0.00 " step=".01"
-					max=" 2500.00 " placeholder="replacement cost" required="required" /><br>
+					name="rentalDuration" min=" 0 " max=" 7 "
+					placeholder="rental duration in days" required="required" /><br>
+				Rental Rate: <input type="number" name="rentalRate" min=" 0.00 "
+					step=".01" max=" 2500.00 " placeholder="rental rate"
+					required="required" /><br> Length: <input type="number"
+					name="length" placeholder="length in minutes" required="required" /><br>
+				Replacement Cost: <input type="number" name="replacementCost"
+					min=" 0.00 " step=".01" max=" 2500.00 "
+					placeholder="replacement cost" required="required" /><br>
 				Rating: <select name="rating">
 					<option value="G">G</option>
 					<option value="PG">PG</option>
 					<option value="PG13">PG13</option>
 					<option value="R">R</option>
 					<option value="NC17">NC17</option>
-				</select> <br> <input class="btn btn-warning" type="submit"
-					value="Add Film" />
+				</select> <input class="btn btn-warning" type="submit" value="Add Film" />
 			</form>
 		</div>
 	</div>
-	<br>
-
+	<hr>
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<p>Copyright © MyWebsite. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

@@ -67,7 +67,6 @@
 		</form>
 	</div>
 	<hr>
-	<br>
 	<footer class="text-center">
 	<div class="container">
 		<div class="row">
