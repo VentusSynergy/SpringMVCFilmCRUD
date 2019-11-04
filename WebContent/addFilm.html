@@ -39,38 +39,43 @@
 			</ul>
 		</div>
 	</nav>
-	<form action="createFilm.do" method="POST">
-		Movie Title: <input type="text" name="title" placeholder="enter title"
-			required="required" /><br> Description: <input type="text"
-			name="description" placeholder="film description" /><br>
-		Release Year: <input type="text" name="releaseYear" /><br>
-		Language <select name="languageId">
-			<option value="1">English</option>
-			<option value="2">Italian</option>
-			<option value="3">Japanese</option>
-			<option value="4">Mandarin</option>
-			<option value="5">French</option>
-			<option value="6">German</option>
-			<br>
-		</select><br> Rental Duration: <input type="text" name="rentalDuration"
-			placeholder="rental duration" /><br> Rental Rate: <input
-			type="text" name="rentalRate" placeholder="rental rate" /><br>
-		Length: <input type="text" name="length" /><br> Replacement
-		Cost: <input type="text" name="replacementCost"
-			placeholder="replacement cost" /><br> Rating: <select
-			name="rating">
-			<option value="G">G</option>
-			<option value="PG">PG</option>
-			<option value="PG13">PG13</option>
-			<option value="R">R</option>
-			<option value="NC17">NC17</option>
-		</select> <br> <input class="btn btn-warning" type="submit"
-			value="Add Film" />
-	</form>
 	<br>
-	<form action="index.html" method="POST">
-		<input class="btn btn-primary" type="submit" value="Home Page" />
-	</form>
+	<div>
+		<div class="container">
+
+			<form action="createFilm.do" method="POST">
+				Movie Title: <input type="text" name="title"
+					placeholder="enter title" required="required" /><br>
+				Description: <input type="text" name="description"
+					placeholder="film description" /><br> Release Year: <input
+					type="text" name="releaseYear" placeholder="release year ie. 2019" /><br> Language <select
+					name="languageId">
+					<option value="1">English</option>
+					<option value="2">Italian</option>
+					<option value="3">Japanese</option>
+					<option value="4">Mandarin</option>
+					<option value="5">French</option>
+					<option value="6">German</option>
+					<br>
+				</select><br> Rental Duration: <input type="text" name="rentalDuration"
+					placeholder="rental duration" /><br> Rental Rate: <input
+					type="text" name="rentalRate" placeholder="rental rate" /><br>
+				Length: <input type="text" name="length" placeholder="length in minutes"/><br> Replacement
+				Cost: <input type="text" name="replacementCost"
+					placeholder="replacement cost" /><br> Rating: <select
+					name="rating">
+					<option value="G">G</option>
+					<option value="PG">PG</option>
+					<option value="PG13">PG13</option>
+					<option value="R">R</option>
+					<option value="NC17">NC17</option>
+				</select> <br> <input class="btn btn-warning" type="submit"
+					value="Add Film" />
+			</form>
+		</div>
+	</div>
+	<br>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>

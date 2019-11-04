@@ -62,19 +62,27 @@
 	</c:choose>
 	<form action="deleteFilm.do" method="POST">
 		Enter Film ID: <input type="text" name="filmId" required="required" />
-		<input type="submit" value="Delete Film" />
+		<input class="btn btn-danger" type="submit" value="Delete Film" />
 	</form>
-
-
+	<hr>
 	<form action="editFilmPage.do" method="POST">
 		Enter Film ID: <input type="text" name="filmId" required="required" />
-		<input type="submit" value="Edit Film" />
+		<input class="btn btn-warning" type="submit" value="  Edit Film  " />
 	</form>
-
+	<hr>
 	<br>
-	<form action="index.html" method="POST">
+	<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p>Copyright © MyWebsite. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<%-- 	<form action="index.html" method="POST">
 		<input type="submit" value="Home Page" />
-	</form>
+	</form> --%>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>
