@@ -75,4 +75,17 @@ and uses that to delete the film from the database if possible.
 
 ## Technologies/Topics Applied
 
+1. Spring ToolSuite & Gradle-
+  Spring ToolSuite helped us set up our program and automate a few tasks. This was our first time working
+  with both of these technologies & it seemed to make our lives easier. 
+
+
+2. MySQL
+  - Since this is a fully funcitoning CRUD application, our SQL queries were very important. We used
+    SELECT, UPDATE, JOIN, INSERT & DELETE commands to manipulate the data as the user requests.
+    
+3. MySQL Workbench
+  - This was really helpful for testing out our SQL commands and viewing the data in the database.
+    I like how it is user friendly and displays the relevant information clearly.
+
 
