@@ -22,12 +22,23 @@ public class FilmController {
 	// finds film by Id, passing param filmId from index.html
 	@RequestMapping(path = "findFilmById.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView findFilmById(@RequestParam("filmId") int p) {
+		
+		System.out.println("*******TESTER in find film Controller");
 
 		Film returnedFilm = dao.findFilmById(p);
 		
+		
+		System.out.println("*******TESTER returnd film" + returnedFilm);//null
+		
 		//sets film category for display
 		String category = dao.findFilmCategory(returnedFilm);
-		returnedFilm.setCategory(category);
+		
+		System.out.println("*******TESTER2 ");
+		
+		if (returnedFilm != null) {
+			returnedFilm.setCategory(category);
+		}
+		
 
 		System.out.println("*******" + returnedFilm);// tester
 

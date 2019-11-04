@@ -572,6 +572,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public String findFilmCategory(Film film) {
+		
+		if (film == null) {
+			return "";
+		}
 
 		String category = "";
 		String user = "root";
