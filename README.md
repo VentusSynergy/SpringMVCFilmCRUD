@@ -1,4 +1,5 @@
 ## Spring MVC Film C.R.U.D. Project
+Week 8 Homework Project for Skill Distillery
 
 ### Overview
 
@@ -14,9 +15,6 @@
 
 * User Story 6
 
-# Film Query Project
-
-Week 8 Homework Project for Skill Distillery
 
 ## Overview
 
