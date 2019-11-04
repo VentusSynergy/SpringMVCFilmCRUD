@@ -13,8 +13,6 @@
 	href="https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/4.3.1/css/bootstrap.css"
 	rel="stylesheet">
 </head>
-
-
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> &nbsp;
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -38,40 +36,36 @@
 						class="dropdown-item"
 						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md"
 						target="_blank">ReadMe</a>
-
-
 				</div></li>
-
 		</ul>
 	</div>
 	</nav>
-
-
-	<c:choose>
-
-		<c:when test="${! empty list}">
-			<!-- need to add rest of attributes here -->
-
-			<p>
-				<strong>Film Title: </strong>${list}</p>
-
-
-		</c:when>
-		<c:otherwise>
-			<p>Empty List</p>
-		</c:otherwise>
-	</c:choose>
-	<form action="deleteFilm.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" required="required"
-			placeholder="enter film ID" /> <input class="btn btn-danger"
-			type="submit" value="Delete Film" />
-	</form>
-	<hr>
-	<form action="editFilmPage.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" required="required"
-			placeholder="enter film ID" /> <input class="btn btn-warning"
-			type="submit" value="  Edit Film  " />
-	</form>
+	<br>
+	<div class="container">
+		<c:choose>
+			<c:when test="${! empty list}">
+				<!-- need to add rest of attributes here -->
+				<h5>
+					<strong>List of Film Titles: </strong>
+				</h5>
+				<p>${list}</p>
+			</c:when>
+			<c:otherwise>
+				<p>Empty List</p>
+			</c:otherwise>
+		</c:choose>
+		<form action="deleteFilm.do" method="POST">
+			Enter Film ID: <input type="text" name="filmId" required="required"
+				placeholder="enter film ID" /> <input class="btn btn-danger"
+				type="submit" value="Delete Film" />
+		</form>
+		<hr>
+		<form action="editFilmPage.do" method="POST">
+			Enter Film ID: <input type="text" name="filmId" required="required"
+				placeholder="enter film ID" /> <input class="btn btn-warning"
+				type="submit" value="  Edit Film  " />
+		</form>
+	</div>
 	<hr>
 	<br>
 	<footer class="text-center">
