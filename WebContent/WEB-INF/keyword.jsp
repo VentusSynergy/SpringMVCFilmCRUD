@@ -15,78 +15,75 @@
 	rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		&nbsp;
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="index.html">Home <span class="sr-only">(current)</span>
-				</a></li>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> &nbsp;
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link"
+				href="index.html">Home <span class="sr-only">(current)</span>
+			</a></li>
 
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Menu </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="userStories.html">User Stories</a>
-						<a class="dropdown-item"
-							href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md" target="_blank">ReadMe</a>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Menu </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="userStories.html">User Stories</a> <a
+						class="dropdown-item"
+						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md"
+						target="_blank">ReadMe</a>
 
 
-					</div></li>
+				</div></li>
 
-			</ul>
-		</div>
+		</ul>
+	</div>
 	</nav>
-
-	<%-- 			<form action="keyword.do" method="GET">
-				<input type="text" name="keyword" /> <input type="submit"
-					value="Search" /> --%>
-
-	<form action="keyword.do" method="GET">
-		<input type="text" name="keyword" placeholder="seach keyword"
-			required="required" /> <input class="btn btn-primary" type="submit"
-			value="Search" />
-	</form>
 	<br>
-	<div>
-		<p>
-			<em><strong>Film Results by Keyword</strong></em>
-		</p>
+	<div class="container">
+		<form action="keyword.do" method="GET">
+			<input type="text" name="keyword" placeholder="seach keyword"
+				required="required" /> <input class="btn btn-primary" type="submit"
+				value="Search" />
+		</form>
+		<br>
 		<div>
+			<p>
+				<em><strong>Film Results by Keyword</strong></em>
+			</p>
+			<div>
 
-			<c:choose>
-				<c:when test="${! empty filmList}">
-					<!-- need to add rest of attributes here -->
-					<c:forEach items="${filmList}" var="film">
-						<ul>
-							<li><strong>Film Id: </strong>${film.id}</li>
-							<li><strong>Film Title: </strong>${film.title}</li>
-							<li><strong>Film Description: </strong>${film.description}</li>
-							<li><strong>Release Year: </strong>${film.releaseYear}</li>
-							<li><strong>Language: </strong>${film.language}</li>
-							<li><strong>Length: </strong>${film.length}</li>
-							<li><strong>Actors: </strong>${film.actors}</li>
-							<li><strong>Category: </strong>${film.category}</li>
-						</ul>
-						<hr>
-					</c:forEach>
+				<c:choose>
+					<c:when test="${! empty filmList}">
+						<!-- need to add rest of attributes here -->
+						<c:forEach items="${filmList}" var="film">
+							<ul>
+								<li><strong>Film Id: </strong>${film.id}</li>
+								<li><strong>Film Title: </strong>${film.title}</li>
+								<li><strong>Film Description: </strong>${film.description}</li>
+								<li><strong>Release Year: </strong>${film.releaseYear}</li>
+								<li><strong>Language: </strong>${film.language}</li>
+								<li><strong>Length: </strong>${film.length}</li>
+								<li><strong>Actors: </strong>${film.actors}</li>
+								<li><strong>Category: </strong>${film.category}</li>
+							</ul>
+							<hr>
+						</c:forEach>
 
-					<%-- <p><strong>Film List by Keyword:</strong>${filmList}</p> --%>
-				</c:when>
-				<c:otherwise>
-					<p>No film found</p>
-				</c:otherwise>
-			</c:choose>
-			</form>
+						<%-- <p><strong>Film List by Keyword:</strong>${filmList}</p> --%>
+					</c:when>
+					<c:otherwise>
+						<p>No film found</p>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<br> <a href="index.html">HOME</a>
 		</div>
-		<br> <a href="index.html">HOME</a>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script

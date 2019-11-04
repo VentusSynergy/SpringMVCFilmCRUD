@@ -36,7 +36,8 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="userStories.html">User Stories</a> <a
 						class="dropdown-item"
-						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md" target="_blank" >ReadMe</a>
+						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md"
+						target="_blank">ReadMe</a>
 
 
 				</div></li>
@@ -61,13 +62,15 @@
 		</c:otherwise>
 	</c:choose>
 	<form action="deleteFilm.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" required="required" placeholder="enter film ID" />
-		<input class="btn btn-danger" type="submit" value="Delete Film" />
+		Enter Film ID: <input type="text" name="filmId" required="required"
+			placeholder="enter film ID" /> <input class="btn btn-danger"
+			type="submit" value="Delete Film" />
 	</form>
 	<hr>
 	<form action="editFilmPage.do" method="POST">
-		Enter Film ID: <input type="text" name="filmId" required="required" placeholder="enter film ID" />
-		<input class="btn btn-warning" type="submit" value="  Edit Film  " />
+		Enter Film ID: <input type="text" name="filmId" required="required"
+			placeholder="enter film ID" /> <input class="btn btn-warning"
+			type="submit" value="  Edit Film  " />
 	</form>
 	<hr>
 	<br>

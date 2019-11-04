@@ -35,7 +35,8 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="userStories.html">User Stories</a> <a
 						class="dropdown-item"
-						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md" target="_blank" >ReadMe</a>
+						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md"
+						target="_blank">ReadMe</a>
 
 
 				</div></li>
@@ -43,38 +44,41 @@
 		</ul>
 	</div>
 	</nav>
-	<div>
-		<form action="findFilmById.do" method="GET">
-			<input type="number" name="filmId" placeholder="enter film ID"
-				required="required" /> <input type="submit" class="btn btn-primary"
-				value="Search" />
-		</form>
-		<br>
-		<p>
-			<em><strong>Film Results by ID</strong></em>
-		</p>
-	</div>
 	<br>
-	<div>
-		<c:choose>
-			<c:when test="${! empty film}">
-				<!-- need to add rest of attributes here -->
-				<strong>Film Title: </strong>${film.title}<br>
-				<strong>Film Description: </strong>${film.description}<br>
-				<strong>Release Year: </strong>${film.releaseYear}<br>
-				<strong>Language: </strong>${film.language}<br>
-				<strong>Length: </strong>${film.length}<br>
-				<strong>Rating: </strong>${film.rating}<br>
-				<strong>Actors: </strong>${film.actors}<br>
-				<strong>Category: </strong>${film.category}<br>
+	<div class="container">
+		<div>
+			<form action="findFilmById.do" method="GET">
+				<input type="number" name="filmId" placeholder="enter film ID"
+					required="required" /> <input type="submit"
+					class="btn btn-primary" value="Search" />
+			</form>
+			<br>
+			<p>
+				<em><strong>Film Results by ID</strong></em>
+			</p>
+		</div>
+		<br>
+		<div>
+			<c:choose>
+				<c:when test="${! empty film}">
+					<!-- need to add rest of attributes here -->
+					<strong>Film Title: </strong>${film.title}<br>
+					<strong>Film Description: </strong>${film.description}<br>
+					<strong>Release Year: </strong>${film.releaseYear}<br>
+					<strong>Language: </strong>${film.language}<br>
+					<strong>Length: </strong>${film.length}<br>
+					<strong>Rating: </strong>${film.rating}<br>
+					<strong>Actors: </strong>${film.actors}<br>
+					<strong>Category: </strong>${film.category}<br>
 
 
-			</c:when>
-			<c:otherwise>
-				<p>No film found, enter film ID</p>
-			</c:otherwise>
-		</c:choose>
-		<br> <a href="index.html">HOME</a>
+				</c:when>
+				<c:otherwise>
+					<p>No film found, enter film ID</p>
+				</c:otherwise>
+			</c:choose>
+			<br> <!-- <a href="index.html">HOME</a> -->
+		</div>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
@@ -90,33 +94,3 @@
 </body>
 </html>
 
-<%-- <body>
-	<form:form action="findFilmById.do" method="GET">
-		<form:label path="Id">Enter Film ID:</form:label>
-		<form:input path="Id" />
-		<form:errors path="Id" />
-		
-		<input type="submit" value="Find"/>
-
-=======
-	<form:form action="findFilmById.do" method="GET">
-		<%-- <form:label path="Id">Enter Film ID#:</form:label>
-		<form:input path="Id" />
-		<form:errors path="Id" />
-		<input type="submit" value="Find"/> --%>
-<!-- <div>
-			<label for="filmId">Film Id</label>
-			<input type="text" name="id" placeholder="Film Id">
-		</div> -->
-<%-- </form:form>
-	
-	
-	<form action="findFilmById.do" method="GET">
-		<input type="submit" value="Find Film" />
-	</form>
-	<form action="createFilm.do" method="GET">
-		<input type="submit" value="Creat Film" />
-	</form>
-	
-	
-</body> --%>

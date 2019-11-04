@@ -36,7 +36,8 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="userStories.html">User Stories</a> <a
 						class="dropdown-item"
-						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md" target="_blank" >ReadMe</a>
+						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md"
+						target="_blank">ReadMe</a>
 
 
 				</div></li>
