@@ -18,7 +18,9 @@ import com.skilldistillery.film.entities.*;
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
-
+	private String user = "student";
+	private String pass = "student";
+	
 	static {// had to add this static block to connect to DB
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -87,8 +89,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film findFilmById(int filmId) {
 
-		String user = "root";
-		String pass = "root";
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -148,8 +148,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Actor findActorById(int actorId) {
 
-		String user = "student";
-		String pass = "student";
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -198,8 +196,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public List<Actor> findActorsByFilmId(int filmId) {
 
 		List<Actor> actorList = new ArrayList<>();
-		String user = "student";
-		String pass = "student";
+
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -249,8 +246,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public List<Film> findFilmByKeyword(String keyword) {
 
 		List<Film> filmList = new ArrayList<>();
-		String user = "student";
-		String pass = "student";
+
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -310,8 +306,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		System.out.println("***IN DAO");
 
 		Connection conn = null;
-		String user = "root";
-		String pass = "root";
+
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
@@ -378,8 +373,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	public boolean deleteFilm(Film film) {
 		Connection conn = null;
-		String user = "root";
-		String pass = "root";
+
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
@@ -451,8 +445,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film films = new Film();
 
 		Connection conn = null;
-		String user = "root";
-		String pass = "root";
+
 		List<String> filmsPastThousand = new ArrayList<>();
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
@@ -493,8 +486,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Film editFilm(Film film) {
 
 		Connection conn = null;
-		String user = "root";
-		String pass = "root";
+
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
@@ -578,8 +570,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 
 		String category = "";
-		String user = "root";
-		String pass = "root";
+
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
