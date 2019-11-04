@@ -22,23 +22,21 @@ public class FilmController {
 	// finds film by Id, passing param filmId from index.html
 	@RequestMapping(path = "findFilmById.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView findFilmById(@RequestParam("filmId") int p) {
-		
+
 		System.out.println("*******TESTER in find film Controller");
 
 		Film returnedFilm = dao.findFilmById(p);
-		
-		
-		System.out.println("*******TESTER returnd film" + returnedFilm);//null
-		
-		//sets film category for display
+
+		System.out.println("*******TESTER returnd film" + returnedFilm);// null
+
+		// sets film category for display
 		String category = dao.findFilmCategory(returnedFilm);
-		
+
 		System.out.println("*******TESTER2 ");
-		
+
 		if (returnedFilm != null) {
 			returnedFilm.setCategory(category);
 		}
-		
 
 		System.out.println("*******" + returnedFilm);// tester
 
@@ -53,16 +51,16 @@ public class FilmController {
 	@RequestMapping(path = "keyword.do")
 	public ModelAndView filmSearchKeyword(String keyword) {
 		List<Film> filmList = dao.findFilmByKeyword(keyword);
-		
+
 		for (Film f : filmList) {
 			String category = dao.findFilmCategory(f);
 			f.setCategory(category);
 		}
-		
+
 		System.out.println("keyword in controller" + filmList);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/keyword.jsp");
-		
+
 		mv.addObject("filmList", filmList);
 		return mv;
 	}
@@ -157,39 +155,6 @@ public class FilmController {
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/editFilm.jsp");
 		return mv;
-
-//	@RequestMapping(path = "editFilm.do", params = "filmId", method = RequestMethod.POST)
-//	public ModelAndView edit(@RequestParam("filmId") int id) {
-//
-//		System.out.println("***IN CONTROLLER/EDIT FILM");
-//
-//		Film film = dao.findFilmById(id);
-//
-//		List<String> list = dao.returnGreaterThanThousand();
-//
-//
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("film", film);
-//		mv.setViewName("WEB-INF/editFilm.jsp");
-//		return mv;
-//	}
-
-//	@RequestMapping(path = "editThisFilm.do", params = "edit", method = RequestMethod.POST)
-//	public ModelAndView editThisFilm(Film edit) {
-//		ModelAndView mv = new ModelAndView();
-//		List<Film> list = new ArrayList<>();
-//		if (dao.editThisFilm(edit)) {
-//			list.add(edit);
-//			mv.addObject("film", edit);
-//			mv.setViewName("WEB-INF/views/editThisFilm.jsp");
-//		} else {
-//			list.add(edit);
-//			mv.addObject("film", edit);
-//			mv.setViewName("WEB-INF/views/editThisFilm.jsp");
-//		}
-//		return mv;
-//
-//	}
 
 	}
 
