@@ -33,7 +33,9 @@
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Menu </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="userStories.html">User Stories</a>
+					<a class="dropdown-item" href="userStories.html">User Stories</a> <a
+						class="dropdown-item"
+						href="https://github.com/VentusSynergy/SpringMVCFilmCRUD/blob/master/README.md">ReadMe</a>
 
 
 				</div></li>
@@ -43,8 +45,9 @@
 	</nav>
 	<div>
 		<form action="findFilmById.do" method="GET">
-			<input type="text" name="filmId" placeholder="enter film ID" required="required" /> <input
-				type="submit" class="btn btn-primary" value="Search"  />
+			<input type="number" name="filmId" placeholder="enter film ID"
+				required="required" /> <input type="submit" class="btn btn-primary"
+				value="Search" />
 		</form>
 		<br>
 		<p>
