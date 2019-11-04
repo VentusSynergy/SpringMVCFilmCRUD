@@ -81,6 +81,19 @@
 			<!-- <a href="index.html">HOME</a> -->
 		</div>
 	</div>
+	<div align="center">
+		<div class="btn-group" role="group" align="right">
+			<form action="addFilm.html" method="GET">
+				<input class="btn btn-secondary w-100" type="submit"
+					value="Create New Film" />
+			</form>
+
+			<form action="deletePage.do" method="POST">
+				<input class="btn btn-secondary w-100" type="submit"
+					value="Delete or Edit Films" />
+			</form>
+		</div>
+	</div>
 	<hr>
 	<footer class="text-center">
 	<div class="container">
@@ -90,6 +103,7 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
